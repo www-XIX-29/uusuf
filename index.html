@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>صفحة تعريفية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff946a3f;
+            color: #333;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* واجهة الانتظار */
+        .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            z-index: 10000;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .loading::before {
+            content: "جاري التحميل...";
+            font-size: 36px;
+            color: white;
+            z-index: 1;
+        }
+
+        /* تأثير قطرات الماء */
+        .raindrops {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+        }
+
+        .raindrop {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: fall 2s infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -20px;
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        .raindrop:nth-child(1) { left: 10%; animation-duration: 2s; animation-delay: 0.5s; width: 10px; height: 10px; }
+        .raindrop:nth-child(2) { left: 30%; animation-duration: 2.5s; animation-delay: 1s; width: 12px; height: 12px; }
+        .raindrop:nth-child(3) { left: 50%; animation-duration: 3s; animation-delay: 1.5s; width: 15px; height: 15px; }
+        .raindrop:nth-child(4) { left: 70%; animation-duration: 2.5s; animation-delay: 0.8s; width: 12px; height: 12px; }
+        .raindrop:nth-child(5) { left: 90%; animation-duration: 3.2s; animation-delay: 1.3s; width: 14px; height: 14px; }
+
+        .img1 {
+            height: 20%;
+            width: 40%;
+            background: url('https://i.imgur.com/vRoUOQL.jpeg') center/cover no-repeat;
+            border-radius: 50%;
+            position: fixed;
+            top: 5%;
+            left: 30%;
+            padding: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease, box-shadow 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 0 0 3px red;
+        }
+
+        /* تصميم النص وجعله متجاوب */
+        .h2 {
+            color: #ff9340;
+            font-size: 4vw; /* الخط يتغير حسب عرض الشاشة */
+            background-color: #ff2b9d;
+            color: #000000;
+            position: fixed;
+            top: 25%; /* النص يظهر أسفل الصورة */
+            left: 50%;
+            transform: translateX(-50%); /* يضمن التوسيط */
+            z-index: 5;
+            padding: 8px 24px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 268px) {
+            .h2 {
+                font-size: 6vw; /* حجم الخط للشاشات الصغيرة */
+                top: 20%;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .h2 {
+                font-size: 6vw; /* حجم الخط للشاشات الأصغر */
+                top: 25.5%;
+            }
+        }
+
+        /* تصميم الأزرار المحسن */
+        .sv1, .sv2, .sv3, .sv4, .sv5, .sv6, .sv7 {
+            height: 8%;
+            width: 60%;
+            position: fixed;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff6f61, #ff9340);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 
+                        inset 0 -3px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4vw; /* النص متجاوب مع الشاشة */
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite alternate;
+        }
+
+        .sv1:hover, .sv2:hover, .sv3:hover, .sv4:hover, .sv5:hover, .sv6:hover, .sv7:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #ff9340, #ff6f61);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* مواقع الأزرار */
+        .sv1 { top: 32%; left: 21%; transform: translateX(0%); }
+        .sv2 { top: 41%; left: 21%; transform: translateX(-50%); }
+        .sv3 { top: 50%; left: 21%; transform: translateX(-50%); }
+        .sv4 { top: 59%; left: 21%; transform: translateX(-50%); }
+        .sv5 { top: 68%; left: 21%; transform: translateX(-50%); }
+        .sv6 { top: 77%; left: 21%; transform: translateX(-50%); }
+        .sv7 { top: 86%; left: 21%; transform: translateX(-50%); }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- واجهة الانتظار -->
+    <div class="loading" id="loading-screen">
+        <div class="raindrops">
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+            <div class="raindrop"></div>
+        </div>
+    </div>
+
+    <!-- الصورة -->
+    <div class="img1" onclick="zoomImage()"></div>
+    <h1 class="h2">uusuf.KG</h1>
+
+    <!-- الأزرار للتنقل -->
+    <div class="sv1" onclick="navigateTo('apps')">تطبيقاتي</div>
+    <div class="sv2" onclick="navigateTo('websites')">من انا</div>
+    <div class="sv3" onclick="navigateTo('info')">واتساب</div>
+    <div class="sv4" onclick="navigateTo('section4')">تلجرام</div>
+    <div class="sv5" onclick="navigateTo('section5')">فيسبوك</div>
+    <div class="sv6" onclick="navigateTo('section6')">تيك توك</div>
+    <div class="sv7" onclick="navigateTo('section7')">إنستجرام</div>
+
+    <script>
+        function zoomImage() {
+            const img = document.querySelector('.img1');
+
+            if (img.style.transform === 'translate(-50%, -50%) scale(2)') {
+                img.style.transform = 'scale(1)';
+                img.style.top = '5%';
+                img.style.left = '30%';
+                img.style.boxShadow = '0 0 0 3px silver';
+                img.style.backgroundImage = "url('https://i.imgur.com/vRoUOQL.jpeg')";
+            } else {
+                img.style.transform = 'translate(-50%, -50%) scale(2)';
+                img.style.top = '50%';
+                img.style.left = '50%';
+                img.style.boxShadow = '0 0 0 3px silver';
+                img.style.backgroundImage = "url('https://i.imgur.com/hpjEx7d.gif')";
+            }
+        }
+
+        function navigateTo(section) {
+            const links = {
+                'apps': 'https://ar.uptodown.com/developer/uusuf',
+                'websites': 'https://example.com/websites',
+                'info': 'https://wa.me/message/HX4QSAYRP3FAK1',
+                'section4': 'https://t.me/+dyakv1KZlqVjZGE0',
+                'section5': 'https://www.facebook.com/uusuf.X.I.X?mibextid=ZbWKwL',
+                'section6': 'https://wa.me/message/HX4QSAYRP3FAK1',
+                'section7': 'https://www.instagram.com/x2a__2?igsh=ZnNoN2tkam9uam41'
+            };
+
+            if (links[section]) {
+                window.location.href = links[section];
+            } else {
+                alert('https://i.imgur.com/PVzOA73.gif');
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('loading-screen').style.display = 'none';
+        };
+    </script>
+</body>
+</html>
