@@ -1,9 +1,16 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>صفحة تعريفية</title>
+    <title>يوسف عبد الملك</title>
+    
+<meta property="og:image" content="https://i.imgur.com/f6EZxsh.jpeg" />
+
+<meta property="og:description" content="صفحة تعريفيه ل يوسف عبد الملك"/>
+
+<meta property="og:title" content="uusuf" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -14,7 +21,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #ff946a3f;
+            background-color: #ffffff;
             color: #333;
             text-align: center;
             overflow: hidden;
@@ -80,13 +87,14 @@
         .raindrop:nth-child(5) { left: 90%; animation-duration: 3.2s; animation-delay: 1.3s; width: 14px; height: 14px; }
 
         .img1 {
-            height: 20%;
-            width: 40%;
-            background: url('https://i.imgur.com/vRoUOQL.jpeg') center/cover no-repeat;
+            height: 40vw; /* يجعل الارتفاع مرنًا بناءً على عرض الشاشة */
+            width: 40vw; /* العرض يعتمد على عرض الشاشة */
+            background: url( https://i.imgur.com/f6EZxsh.jpeg ) center/cover no-repeat;
             border-radius: 50%;
             position: fixed;
             top: 5%;
-            left: 30%;
+            left: 50%; /* تم تعديل التوسيط ليكون دائمًا في منتصف الشاشة */
+            transform: translateX(-50%);
             padding: 5px;
             cursor: pointer;
             transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease, box-shadow 0.3s ease;
@@ -98,8 +106,8 @@
         .h2 {
             color: #ff9340;
             font-size: 4vw; /* الخط يتغير حسب عرض الشاشة */
-            background-color: #ff2b9d;
-            color: #000000;
+            background-color: #000;
+            color: #fff;
             position: fixed;
             top: 25%; /* النص يظهر أسفل الصورة */
             left: 50%;
@@ -132,7 +140,7 @@
             width: 60%;
             position: fixed;
             border-radius: 50px;
-            background: linear-gradient(135deg, #ff6f61, #ff9340);
+            background: linear-gradient(#000, #000, #000);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 
                         inset 0 -3px 5px rgba(0, 0, 0, 0.3);
             cursor: pointer;
@@ -186,53 +194,53 @@
     <h1 class="h2">uusuf.KG</h1>
 
     <!-- الأزرار للتنقل -->
-    <div class="sv1" onclick="navigateTo('apps')">تطبيقاتي</div>
-    <div class="sv2" onclick="navigateTo('websites')">من انا</div>
-    <div class="sv3" onclick="navigateTo('info')">واتساب</div>
-    <div class="sv4" onclick="navigateTo('section4')">تلجرام</div>
-    <div class="sv5" onclick="navigateTo('section5')">فيسبوك</div>
-    <div class="sv6" onclick="navigateTo('section6')">تيك توك</div>
-    <div class="sv7" onclick="navigateTo('section7')">إنستجرام</div>
+    <div class="sv1" onclick="navigateTo( apps )">تطبيقاتي</div>
+    <div class="sv2" onclick="navigateTo( websites )">من انا</div>
+    <div class="sv3" onclick="navigateTo( info )">واتساب</div>
+    <div class="sv4" onclick="navigateTo( section4 )">تلجرام</div>
+    <div class="sv5" onclick="navigateTo( section5 )">فيسبوك</div>
+    <div class="sv6" onclick="navigateTo( section6 )">تيك توك</div>
+    <div class="sv7" onclick="navigateTo( section7 )">إنستجرام</div>
 
     <script>
         function zoomImage() {
-            const img = document.querySelector('.img1');
+            const img = document.querySelector( .img1 );
 
-            if (img.style.transform === 'translate(-50%, -50%) scale(2)') {
-                img.style.transform = 'scale(1)';
-                img.style.top = '5%';
-                img.style.left = '30%';
-                img.style.boxShadow = '0 0 0 3px silver';
-                img.style.backgroundImage = "url('https://i.imgur.com/vRoUOQL.jpeg')";
+            if (img.style.transform ===  translate(-50%, -50%) scale(2) ) {
+                img.style.transform =  scale(1) ;
+                img.style.top =  5% ;
+                img.style.left =  30% ;
+                img.style.boxShadow =  0 0 0 3px silver ;
+                img.style.backgroundImage = "url( https://i.imgur.com/1detfDj.jpeg )";
             } else {
-                img.style.transform = 'translate(-50%, -50%) scale(2)';
-                img.style.top = '50%';
-                img.style.left = '50%';
-                img.style.boxShadow = '0 0 0 3px silver';
-                img.style.backgroundImage = "url('https://i.imgur.com/hpjEx7d.gif')";
+                img.style.transform =  translate(-50%, -50%) scale(2) ;
+                img.style.top =  50% ;
+                img.style.left =  50% ;
+                img.style.boxShadow =  0 0 0 3px silver ;
+                img.style.backgroundImage = "url( https://i.imgur.com/hpjEx7d.gif )";
             }
         }
 
         function navigateTo(section) {
             const links = {
-                'apps': 'https://ar.uptodown.com/developer/uusuf',
-                'websites': 'https://example.com/websites',
-                'info': 'https://wa.me/message/HX4QSAYRP3FAK1',
-                'section4': 'https://t.me/+dyakv1KZlqVjZGE0',
-                'section5': 'https://www.facebook.com/uusuf.X.I.X?mibextid=ZbWKwL',
-                'section6': 'https://wa.me/message/HX4QSAYRP3FAK1',
-                'section7': 'https://www.instagram.com/x2a__2?igsh=ZnNoN2tkam9uam41'
+                 apps :  https://ar.uptodown.com/developer/uusuf ,
+                 websites :  https://example.com/websites ,
+                 info :  https://wa.me/message/HX4QSAYRP3FAK1 ,
+                 section4 :  https://t.me/+dyakv1KZlqVjZGE0 ,
+                 section5 :  https://www.facebook.com/uusuf.X.I.X?mibextid=ZbWKwL ,
+                 section6 :  https://wa.me/message/HX4QSAYRP3FAK1 ,
+                 section7 :  https://www.instagram.com/x2a__2?igsh=ZnNoN2tkam9uam41 
             };
 
             if (links[section]) {
                 window.location.href = links[section];
             } else {
-                alert('https://i.imgur.com/PVzOA73.gif');
+                alert( https://i.imgur.com/PVzOA73.gif );
             }
         }
 
         window.onload = function() {
-            document.getElementById('loading-screen').style.display = 'none';
+            document.getElementById( loading-screen ).style.display =  none ;
         };
     </script>
 </body>
